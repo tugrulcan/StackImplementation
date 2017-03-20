@@ -13,7 +13,7 @@ namespace ArrayTypedStackUnitTests
         {
             ArrayTypedStack stack = new ArrayTypedStack(5);
             string s = stack.DisplayElements();
-            
+
         }
 
         [TestMethod]
@@ -87,6 +87,25 @@ namespace ArrayTypedStackUnitTests
             int actualSize = stack.Size;
             int expectedSize = 2;
             Assert.AreEqual(expectedSize, actualSize);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(IndexOutOfRangeException))]
+        public void DoesPeekShowAnythingWhenStackIsEmpty()
+        {
+            ArrayTypedStack stack = new ArrayTypedStack(3);
+            stack.Peek();
+        }
+
+        [TestMethod]
+        public void DoesPeekShowTopElementWhenStackIsNotEmpty()
+        {
+            ArrayTypedStack stack = new ArrayTypedStack(3);
+            stack.Push(2);
+            stack.Push(3);
+            int actual = (int)stack.Peek();
+            int expected = 3;
+            Assert.AreEqual(expected, actual);
         }
 
         

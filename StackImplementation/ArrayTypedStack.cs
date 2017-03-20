@@ -46,7 +46,14 @@ namespace StackImplementation
 
         public object Peek()
         {
-            throw new NotImplementedException();
+            if (IsEmpty())
+            {
+                throw new IndexOutOfRangeException();
+            }
+            else
+            {
+                return items_array[(int)Top];
+            }
         }
 
         public object Pop()
