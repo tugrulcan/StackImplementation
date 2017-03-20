@@ -28,7 +28,7 @@ namespace StackImplementation
 
         public bool IsEmpty()
         {
-            throw new NotImplementedException();
+            return this.Size > 0 ? false : true;
         }
 
         public object Peek()
@@ -44,6 +44,11 @@ namespace StackImplementation
         public void Push(object item)
         {
             throw new NotImplementedException();
+        }
+
+        public string DisplayElements()
+        {
+            return list.DisplayElements();
         }
     }
 }
