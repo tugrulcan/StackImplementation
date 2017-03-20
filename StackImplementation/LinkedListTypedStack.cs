@@ -7,7 +7,7 @@ using LinkedListImplementation;
 
 namespace StackImplementation
 {
-    public class StackUsingLinkedList : IStack
+    public class LinkedListTypedStack : IStack
     {
         public object Top { get; set; } //Node
 
@@ -17,11 +17,11 @@ namespace StackImplementation
             {
                 return list.Size;
             }
-        } 
+        }
 
-        private LinkedList list; 
+        private LinkedList list;
 
-        public StackUsingLinkedList()
+        public LinkedListTypedStack()
         {
             list = new LinkedList();
         }
@@ -41,7 +41,19 @@ namespace StackImplementation
 
         public object Pop()
         {
-            throw new NotImplementedException();
+            if (this.IsEmpty())
+                throw new IndexOutOfRangeException();
+            else
+            {
+                object tempTop = this.Top;
+                list.Head = list.Head.Next;
+                this.Top = list.Head;
+
+                list.Size--;
+
+
+                return tempTop;
+            }
         }
 
         public void Push(object item)

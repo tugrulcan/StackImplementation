@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StackImplementation;
 using LinkedListImplementation;
 
-namespace StackUsingLinkedListUnitTests
+namespace LinkedListTypedStackUnitTests
 {
     [TestClass]
     public class UnitTest
@@ -11,7 +11,7 @@ namespace StackUsingLinkedListUnitTests
         [TestMethod]
         public void DoesIsEmptyReturnsTrueWhenStackIsEmpty()
         {
-            StackUsingLinkedList stack = new StackUsingLinkedList();
+            LinkedListTypedStack stack = new LinkedListTypedStack();
             bool expected = true;
             bool actual = stack.IsEmpty();
             Assert.AreEqual(expected, actual);
@@ -20,7 +20,7 @@ namespace StackUsingLinkedListUnitTests
         [TestMethod]
         public void DoesIsEmptyReturnsFaleWhenStackIsNotEmpty() // Depends on push() method
         {
-            StackUsingLinkedList stack = new StackUsingLinkedList();
+            LinkedListTypedStack stack = new LinkedListTypedStack();
             stack.Push(1);
 
             bool expected = false;
@@ -32,7 +32,7 @@ namespace StackUsingLinkedListUnitTests
         [TestMethod]
         public void DoesPushAddElementIntoStackWhenStackIsEmpty()
         {
-            StackUsingLinkedList stack = new StackUsingLinkedList();
+            LinkedListTypedStack stack = new LinkedListTypedStack();
             stack.Push(1);
 
             string expected = "1 ";
@@ -47,7 +47,7 @@ namespace StackUsingLinkedListUnitTests
         [TestMethod]
         public void DoesPushAddElementIntoStackWhenStackIsNotEmpty()
         {
-            StackUsingLinkedList stack = new StackUsingLinkedList();
+            LinkedListTypedStack stack = new LinkedListTypedStack();
             stack.Push(1);
             stack.Push(2);
 
@@ -64,14 +64,14 @@ namespace StackUsingLinkedListUnitTests
         [ExpectedException(typeof(IndexOutOfRangeException))]
         public void DoesPeekThrowsExcetionWhenStackIsEmpty()
         {
-            StackUsingLinkedList stack = new StackUsingLinkedList();
+            LinkedListTypedStack stack = new LinkedListTypedStack();
             Node top = (Node)stack.Peek();
         }
 
         [TestMethod]
         public void DoesPeekRetrieveTopWhenStackHasOnlyOneElement()
         {
-            StackUsingLinkedList stack = new StackUsingLinkedList();
+            LinkedListTypedStack stack = new LinkedListTypedStack();
             stack.Push(1);
 
             int expected = 1;
@@ -87,7 +87,7 @@ namespace StackUsingLinkedListUnitTests
         [TestMethod]
         public void DoesPeekRetrieveTopWhenStackIsNotEmpty()
         {
-            StackUsingLinkedList stack = new StackUsingLinkedList();
+            LinkedListTypedStack stack = new LinkedListTypedStack();
             stack.Push(1);
             stack.Push(2);
 
@@ -101,5 +101,46 @@ namespace StackUsingLinkedListUnitTests
 
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(IndexOutOfRangeException))]
+        public void DoesPopThrowsExcetionWhenStackIsEmpty()
+        {
+            LinkedListTypedStack stack = new LinkedListTypedStack();
+            Node top = (Node)stack.Pop();
+        }
+
+        [TestMethod]
+        public void DoesPopMethodRetrieveTopWhenStackHasOnlyOneElement()
+        {
+            LinkedListTypedStack stack = new LinkedListTypedStack();
+            stack.Push(1);
+
+            int expected = 1;
+            int actual = ((Node)stack.Pop()).Data;
+            Assert.AreEqual(expected, actual);
+
+            Assert.AreEqual(true, stack.IsEmpty());
+            Assert.IsNull(stack.Top);
+        }
+
+        [TestMethod]
+        public void DoesPopRetrieveTopWhenStackIsNotEmpty()
+        {
+            LinkedListTypedStack stack = new LinkedListTypedStack();
+            stack.Push(1);
+            stack.Push(2);
+
+            int expected = 2;
+            int actual = ((Node)stack.Pop()).Data;
+            Assert.AreEqual(expected, actual);
+
+            int expected_size = 1;
+            int actual_size = stack.Size;
+            Assert.AreEqual(expected_size, actual_size);
+
+            int expected_new_top_val = 1;
+            int actual_new_top_val = ((Node)stack.Top).Data;
+            Assert.AreEqual(expected_new_top_val, actual_new_top_val);
+        }
     }
 }

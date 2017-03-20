@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace StackUsingArrayUnitTests
+namespace ArrayTypedStackUnitTests
 {
     [TestClass]
     public class UnitTest
