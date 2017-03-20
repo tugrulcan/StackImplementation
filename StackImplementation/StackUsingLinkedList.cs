@@ -43,7 +43,9 @@ namespace StackImplementation
 
         public void Push(object item)
         {
-            throw new NotImplementedException();
+            int item_i = Convert.ToInt32(item);
+            list.InsertFirst(item_i);
+            this.Top = list.GetElement(0);
         }
 
         public string DisplayElements()
