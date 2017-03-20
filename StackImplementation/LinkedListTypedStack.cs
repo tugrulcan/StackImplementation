@@ -51,14 +51,11 @@ namespace StackImplementation
                 throw new IndexOutOfRangeException();
             else
             {
-                object tempTop = this.Top;
-                list.Head = list.Head.Next;
+                object tempHead = this.list.Head;
+                list.DeleteFirst();
                 this.Top = list.Head;
 
-                list.Size--;
-
-
-                return tempTop;
+                return tempHead;
             }
         }
 

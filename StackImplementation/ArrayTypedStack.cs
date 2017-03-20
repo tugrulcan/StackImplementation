@@ -30,10 +30,12 @@ namespace StackImplementation
                 string result = "";
                 for (int i = (int)this.Top; i > 0; i--)
                 {
-                    result += " " + items_array[i].ToString();
+                    result += items_array[i].ToString() + " " ;
                 }
+
+                return result;
             }
-            throw new NotImplementedException();
+
         }
 
         public bool IsEmpty()
