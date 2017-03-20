@@ -17,7 +17,13 @@ namespace StackImplementation
             {
                 return list.Size;
             }
+            set
+            {
+
+            }
+
         }
+
 
         private LinkedList list;
 

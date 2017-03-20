@@ -50,7 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ArrayTypedStackTests.cs" />
+    <Compile Include="ArrayTypedStackUnitTests.cs" />
     <Compile Include="LinkedListTypedStackUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
