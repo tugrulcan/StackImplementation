@@ -60,5 +60,46 @@ namespace StackUsingLinkedListUnitTests
             Assert.AreEqual(expected_top_val, actual_top_val);
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(IndexOutOfRangeException))]
+        public void DoesPeekThrowsExcetionWhenStackIsEmpty()
+        {
+            StackUsingLinkedList stack = new StackUsingLinkedList();
+            Node top = (Node)stack.Peek();
+        }
+
+        [TestMethod]
+        public void DoesPeekRetrieveTopWhenStackHasOnlyOneElement()
+        {
+            StackUsingLinkedList stack = new StackUsingLinkedList();
+            stack.Push(1);
+
+            int expected = 1;
+            int actual = ((Node)stack.Peek()).Data;
+            Assert.AreEqual(expected, actual);
+
+            int expected_size = 1;
+            int actual_size = stack.Size;
+            Assert.AreEqual(expected_size, actual_size);
+
+        }
+
+        [TestMethod]
+        public void DoesPeekRetrieveTopWhenStackIsNotEmpty()
+        {
+            StackUsingLinkedList stack = new StackUsingLinkedList();
+            stack.Push(1);
+            stack.Push(2);
+
+            int expected = 2;
+            int actual = ((Node)stack.Peek()).Data;
+            Assert.AreEqual(expected, actual);
+
+            int expected_size = 2;
+            int actual_size = stack.Size;
+            Assert.AreEqual(expected_size, actual_size);
+
+        }
+
     }
 }
