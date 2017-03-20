@@ -40,6 +40,15 @@ namespace ArrayTypedStackUnitTests
         }
 
         [TestMethod]
+        public void DoesIsEmptyReturnTrueWhenStackIsEmpty()
+        {
+            ArrayTypedStack stack = new ArrayTypedStack(3);
+            bool actual = stack.IsEmpty();
+            bool expected = true;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
         public void DoesPushAddElementWhenStackIsEmpty()
         {
             ArrayTypedStack stack = new ArrayTypedStack(1);
