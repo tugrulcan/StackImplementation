@@ -9,7 +9,7 @@ namespace StackImplementation
     public interface IStack
     {
         object Top { get; set; }
-
+        int Size { get; }
         void Push(object item);
         object Pop();
         object Peek();
