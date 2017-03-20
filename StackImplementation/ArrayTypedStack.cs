@@ -24,7 +24,7 @@ namespace StackImplementation
 
         public string DisplayElements()
         {
-            if ((int)Top==-1 && Size ==0)
+            if (IsEmpty())
                 throw new IndexOutOfRangeException();
             else
             {
@@ -41,7 +41,7 @@ namespace StackImplementation
 
         public bool IsEmpty()
         {
-            throw new NotImplementedException();
+            return Size == 0 && (int)Top == -1 ? true : false;
         }
 
         public object Peek()
