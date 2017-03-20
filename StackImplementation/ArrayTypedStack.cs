@@ -13,6 +13,7 @@ namespace StackImplementation
         private object[] items_array;
 
         public object Top { get; set; }
+
         public ArrayTypedStack(int array_size)
         {
             this.Top = -1;
@@ -23,12 +24,12 @@ namespace StackImplementation
 
         public string DisplayElements()
         {
-            if (this.IsEmpty())
+            if ((int)Top==-1 && Size ==0)
                 throw new IndexOutOfRangeException();
             else
             {
                 string result = "";
-                for (int i = (int)this.Top; i > 0; i--)
+                for (int i = (int)this.Top; i >= 0; i--)
                 {
                     result += items_array[i].ToString() + " " ;
                 }
@@ -55,7 +56,16 @@ namespace StackImplementation
 
         public void Push(object item)
         {
-            throw new NotImplementedException();
+            if ((int)Top == items_array.Length-1)
+            {
+                throw new StackOverflowException();
+            }
+            else
+            {
+                Top = (int)Top + 1;
+                items_array[(int)Top] = item;
+                Size++;
+            }
         }
     }
 }
