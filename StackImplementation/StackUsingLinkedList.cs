@@ -33,7 +33,10 @@ namespace StackImplementation
 
         public object Peek()
         {
-            throw new NotImplementedException();
+            if (this.IsEmpty())
+                throw new IndexOutOfRangeException();
+            else
+                return this.Top;
         }
 
         public object Pop()
