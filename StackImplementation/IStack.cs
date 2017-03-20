@@ -15,5 +15,6 @@ namespace StackImplementation
         object Peek();
         bool IsEmpty();
 
+        string DisplayElements();
     }
 }
