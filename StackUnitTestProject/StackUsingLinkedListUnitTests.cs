@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StackImplementation;
+using LinkedListImplementation;
 
 namespace StackUsingLinkedListUnitTests
 {
@@ -37,6 +38,10 @@ namespace StackUsingLinkedListUnitTests
             string expected = "1 ";
             string actual = stack.DisplayElements();
             Assert.AreEqual(expected, actual);
+
+            int expected_top_val = 1;
+            int actual_top_val = ((Node)stack.Top).Data;
+            Assert.AreEqual(expected_top_val, actual_top_val);
         }
 
         [TestMethod]
@@ -49,6 +54,10 @@ namespace StackUsingLinkedListUnitTests
             string expected = "2 1 ";
             string actual = stack.DisplayElements();
             Assert.AreEqual(expected, actual);
+
+            int expected_top_val = 2;
+            int actual_top_val = ((Node)stack.Top).Data;
+            Assert.AreEqual(expected_top_val, actual_top_val);
         }
 
     }
