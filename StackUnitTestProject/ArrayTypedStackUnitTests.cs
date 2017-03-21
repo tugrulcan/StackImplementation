@@ -106,8 +106,41 @@ namespace ArrayTypedStackUnitTests
             int actual = (int)stack.Peek();
             int expected = 3;
             Assert.AreEqual(expected, actual);
+
+            int actualSize = stack.Size;
+            int expectedSize = 2;
+            Assert.AreEqual(expectedSize, actualSize);
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(IndexOutOfRangeException))]
+        public void DoesPopRemoveElementWhenStackIsEmpty()
+        {
+            ArrayTypedStack stack = new ArrayTypedStack(3);
+            stack.Pop();
+        }
         
+        [TestMethod]
+        public void DoesPopRemoveElementWhenStackIsNotEmpty()
+        {
+            ArrayTypedStack stack = new ArrayTypedStack(3);
+            stack.Push(3);
+            stack.Push(2);
+            int actual = (int)stack.Pop();
+            int expected = 2;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void DoesPopDecreasedSize()
+        {
+            ArrayTypedStack stack = new ArrayTypedStack(3);
+            stack.Push(3);
+            stack.Push(2);
+            stack.Pop();
+            int actual = stack.Size;
+            int expected = 1;
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

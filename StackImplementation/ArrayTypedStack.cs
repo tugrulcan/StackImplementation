@@ -58,7 +58,17 @@ namespace StackImplementation
 
         public object Pop()
         {
-            throw new NotImplementedException();
+            if (IsEmpty())
+            {
+                throw new IndexOutOfRangeException();
+            }
+            else
+            {
+                Size--;
+                object o = items_array[(int)Top];
+                Top = (int)Top -1;
+                return o;
+            }
         }
 
         public void Push(object item)
